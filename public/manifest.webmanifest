@@ -1,0 +1,24 @@
+{
+  "name": "DataLoom — In-Browser SQL & Data Workbench",
+  "short_name": "DataLoom",
+  "description": "100% Client-Side, Local-First In-Browser SQL, Large JSON/CSV & Markdown Visual Explorer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "productivity", "utilities"]
+}
+

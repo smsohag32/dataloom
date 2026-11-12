@@ -1,0 +1,63 @@
+# ----------------------------------------------------------------------
+# DataLoom Apache Configuration (.htaccess)
+# ----------------------------------------------------------------------
+
+# 1. Prevent Directory Browsing
+Options -Indexes
+
+# 2. SPA Fallback Routing (Solves Page Refresh / Deep-Link 404 Issue)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Don't rewrite existing files or directories
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# 3. Correct MIME Types (Required for DuckDB-Wasm & Modern Web Assets)
+<IfModule mod_mime.c>
+  AddType application/wasm .wasm
+  AddType application/javascript .js .mjs
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg .svgz
+  AddType application/json .json .jsonl .ndjson
+</IfModule>
+
+# 4. GZIP / Deflate Compression (Improves SEO & Core Web Vitals)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/wasm
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 5. Security & Isolation Headers (DuckDB-Wasm Worker Support)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Cross-Origin isolation for WebAssembly workers
+  Header set Cross-Origin-Opener-Policy "same-origin"
+  Header set Cross-Origin-Embedder-Policy "credentialless"
+
+  # Static assets: cache for 1 year (Vite bundles have content hashes)
+  <FilesMatch "\.(js|mjs|css|wasm|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # Entry and SEO files: always revalidate
+  <FilesMatch "(index\.html|manifest\.webmanifest|robots\.txt|sitemap\.xml)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+

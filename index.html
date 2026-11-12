@@ -2,9 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DataLoom — Local SQL, Data &amp; Markdown Workbench</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="DataLoom — Local SQL, Data &amp; Markdown Workbench" />
+    <meta name="description" content="100% Client-Side, Local-First In-Browser SQL, Large JSON/CSV &amp; Markdown Visual Explorer powered by DuckDB-Wasm and SQLite. Zero cloud uploads, 100% privacy." />
+    <meta name="keywords" content="DataLoom, SQL Workbench, DuckDB, DuckDB-Wasm, SQLite, CSV viewer, JSON viewer, Markdown tables, local-first, privacy-focused, data analytics, webassembly, in-browser sql" />
+    <meta name="author" content="DataLoom" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://dataloom.sohagsheik.com" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dataloom.sohagsheik.com" />
+    <meta property="og:site_name" content="DataLoom" />
+    <meta property="og:title" content="DataLoom — Local SQL, Data &amp; Markdown Workbench" />
+    <meta property="og:description" content="100% Client-Side, Local-First In-Browser SQL, Large JSON/CSV &amp; Markdown Visual Explorer powered by DuckDB-Wasm and SQLite. Zero cloud uploads, 100% privacy." />
+    <meta property="og:image" content="https://dataloom.sohagsheik.com/logo.png" />
+    <meta property="og:image:alt" content="DataLoom — Local Data &amp; SQL Workbench" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://dataloom.sohagsheik.com" />
+    <meta name="twitter:title" content="DataLoom — Local SQL, Data &amp; Markdown Workbench" />
+    <meta name="twitter:description" content="100% Client-Side, Local-First In-Browser SQL, Large JSON/CSV &amp; Markdown Visual Explorer powered by DuckDB-Wasm and SQLite. Zero cloud uploads, 100% privacy." />
+    <meta name="twitter:image" content="https://dataloom.sohagsheik.com/logo.png" />
+
+    <!-- Favicon & Mobile Meta -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="DataLoom" />
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DataLoom",
+        "url": "https://dataloom.sohagsheik.com",
+        "description": "100% Client-Side, Local-First In-Browser SQL, Large JSON/CSV & Markdown Visual Explorer powered by DuckDB-Wasm and SQLite.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All modern web browsers (Chrome, Firefox, Safari, Edge)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "In-Browser DuckDB-Wasm Engine",
+          "Client-Side SQLite Support",
+          "CSV and TSV Fast Ingestion with Type Inference",
+          "Deeply Nested JSON / JSONL Flattening",
+          "Markdown Table Extraction and Split Editor",
+          "Interactive Data Grid with 60fps Virtual Scrolling",
+          "Zero Uploads & 100% Local Privacy"
+        ]
+      }
+    </script>
+
     <script>
       // Pre-paint theme: avoids flash / layout shift.
       (function () {
@@ -21,4 +83,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
