@@ -1,0 +1,99 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 230 20% 12%;
+    --card: 230 20% 98.5%;
+    --card-foreground: 230 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 20% 12%;
+    --primary: 232 78% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 18% 95%;
+    --secondary-foreground: 230 20% 14%;
+    --muted: 230 18% 96%;
+    --muted-foreground: 230 8% 42%;
+    --accent: 230 22% 93%;
+    --accent-foreground: 230 20% 12%;
+    --destructive: 0 78% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 60% 36%;
+    --border: 230 14% 89%;
+    --input: 230 14% 89%;
+    --ring: 232 78% 58%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 228 28% 7%;
+    --foreground: 225 20% 93%;
+    --card: 228 26% 9%;
+    --card-foreground: 225 20% 93%;
+    --popover: 228 26% 10%;
+    --popover-foreground: 225 20% 93%;
+    --primary: 228 90% 68%;
+    --primary-foreground: 228 40% 8%;
+    --secondary: 228 18% 14%;
+    --secondary-foreground: 225 20% 93%;
+    --muted: 228 18% 12%;
+    --muted-foreground: 225 10% 62%;
+    --accent: 228 18% 16%;
+    --accent-foreground: 225 20% 93%;
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 55% 50%;
+    --border: 228 14% 17%;
+    --input: 228 14% 17%;
+    --ring: 228 90% 68%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    /* No colour transition flash between themes – but keep layout identical. */
+  }
+  /* Slim scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+  }
+}
+
+@layer components {
+  .md-prose {
+    @apply text-sm leading-relaxed;
+  }
+  .md-prose h1 { @apply mb-3 mt-1 text-2xl font-semibold tracking-tight; }
+  .md-prose h2 { @apply mb-2 mt-6 border-b pb-1 text-lg font-semibold tracking-tight; }
+  .md-prose h3 { @apply mb-2 mt-4 text-base font-semibold; }
+  .md-prose p { @apply my-2; }
+  .md-prose ul { @apply my-2 list-disc pl-5; }
+  .md-prose ol { @apply my-2 list-decimal pl-5; }
+  .md-prose code { @apply rounded bg-muted px-1 py-0.5 font-mono text-[0.85em]; }
+  .md-prose pre { @apply my-3 overflow-auto rounded-md border bg-muted p-3 font-mono text-xs; }
+  .md-prose pre code { @apply bg-transparent p-0; }
+  .md-prose a { @apply text-primary underline-offset-2 hover:underline; }
+  .md-prose blockquote { @apply my-2 border-l-2 pl-3 text-muted-foreground; }
+  .md-prose table { @apply my-3 w-full border-collapse text-xs; }
+  .md-prose th { @apply border bg-muted px-2 py-1 text-left font-semibold; }
+  .md-prose td { @apply border px-2 py-1; }
+  .md-prose tr:nth-child(even) td { @apply bg-muted/40; }
+}
+
